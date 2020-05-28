@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MvmIcommand.Views.AuthenticationPage">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <Label Text="Phone number" 
+                   HorizontalOptions="Start"/>
+            <Entry Placeholder="+15555551234" 
+                   HorizontalOptions="Fill" 
+                   x:Name="PhoneNumberEntry"/>
+            <Button Text="NEXT" 
+                    HorizontalOptions="End" 
+                    x:Name="NextButton"
+                    Clicked="NextButton_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

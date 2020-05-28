@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MvmIcommand.Views.TestNavPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Enter Client Id"/>
+            <Entry x:Name="GetClientById"
+                                   />
+            <ListView x:Name="ClientListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Email}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Entry x:Name="Email"
+                   Placeholder="Email"/>
+            <Entry x:Name="Password"
+                   Placeholder="Password"/>
+            <Button x:Name="Register"
+                    Clicked="Register_Clicked"
+                    Text="Add Client"/>
+            <Button x:Name="UpDateClient"
+                    Clicked="UpDateClient_Clicked"
+                    Text="Update Client"/>
+            <Button x:Name="DeleteClient"
+                    Clicked="DeleteClient_Clicked"
+                    Text="Delete Client"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

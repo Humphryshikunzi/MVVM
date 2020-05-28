@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MvmIcommand.Views.ICommandTwo"
+             xmlns:converters="clr-namespace:MvmIcommand.Converters">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:DateTimeToStringConverters x:Key="converter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="You left "/>
+                            <Span Text="{Binding DateDue, Converter={StaticResource converter}}"/>
+                            <Span Text=" from the app"/>
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Entry x:Name="Name"
+                   Placeholder="Name"
+                   Text="{Binding Name, Mode=TwoWay}"/>
+            <Entry x:Name="Email"
+                   Placeholder="Email"
+                   Text="{Binding Email, Mode=TwoWay}"/>
+            <DatePicker x:Name="DateDue"
+                        Date="{Binding DateDue, Mode=TwoWay}"/>
+            <TimePicker x:Name="TimeDue"
+                        Time="{Binding TimeDue, Mode=TwoWay}"/>
+            <Button x:Name="Submit"
+                    Text="Submit"
+                    Command="{Binding ICommandTwoCommand}"
+                    CommandParameter="{Binding IcommandTwo, Mode=TwoWay}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

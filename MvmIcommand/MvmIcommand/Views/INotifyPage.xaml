@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MvmIcommand.Views.INotifyPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="SignUpContainerStackLayout">
+           
+            <Entry Text="{Binding Email, Mode=TwoWay}"
+                   Placeholder="Email"
+                   x:Name="EmailEntry"/>
+            <Entry Text="{Binding Password, Mode=TwoWay}"
+                   Placeholder="Password"
+                   x:Name="PasswordEntry"/>
+            <Button x:Name="LoginButton"
+                    Text="Log in"
+                    Command="{Binding LoginCommand}"
+                    CommandParameter="{Binding Data, Mode=TwoWay}"/>
+            <Label HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="or"/>
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Button x:Name="SignUp"
+                    Text="Sign Up"
+                    Command="{Binding NavCommand}"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

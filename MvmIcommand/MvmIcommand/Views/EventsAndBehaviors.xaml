@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:MvmIcommand.Behaviors"
+             x:Class="MvmIcommand.Views.EventsAndBehaviors"
+             xmlns:localvm="clr-namespace:MvmIcommand.ViewModels">
+    <ContentPage.BindingContext>
+        <localvm:StudyCaseVM/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Text="{Binding Email, Mode=TwoWay}" 
+                   Placeholder="Email">
+                
+            </Entry>
+            <Entry Text="{Binding Password, Mode=TwoWay}"
+                   Placeholder="Password"
+                >
+                
+            </Entry>
+                       
+            <DatePicker
+                   Date="{Binding DueDate}">
+                <DatePicker.Behaviors>
+                    <local:StudyCaseBehavior/>
+                </DatePicker.Behaviors>
+               
+                
+            </DatePicker>
+            <TimePicker Time="{Binding DueTime}">
+                <TimePicker.Behaviors>
+                    <local:TimePickerBehavior/>
+                </TimePicker.Behaviors>
+            </TimePicker>
+            <Label Text="Brightness"></Label>
+            <Slider 
+                 Value="{Binding BrightnessValue}">
+                <Slider.Behaviors>
+                    <local:SliderBehavior/>
+                </Slider.Behaviors>
+            </Slider>
+            <Picker Title="--select yor city--"
+                    ItemsSource="{Binding  Cities}"
+                    ItemDisplayBinding="{Binding CityName}"
+                    SelectedItem="{Binding _SelectedCity}">
+             
+            </Picker>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Remain signed in?"/>
+                <Switch IsToggled="{Binding SignedIn}"
+                        HorizontalOptions="EndAndExpand"></Switch>
+            </StackLayout>
+           
+            <Button 
+                x:Name="Signup"
+                Text="Sign in"
+                Command="{Binding SignInCommand}"
+                />
+            <Label Text="{Binding MyCity}"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
